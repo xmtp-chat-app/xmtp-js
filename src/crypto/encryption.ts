@@ -6,7 +6,7 @@ export const crypto: Crypto =
   typeof window !== 'undefined'
     ? window.crypto
     : // eslint-disable-next-line @typescript-eslint/no-var-requires
-      (require('crypto').webcrypto as unknown as Crypto)
+      (new (require('@peculiar/webcrypto').Crypto)() as unknown as Crypto)
 
 const hkdfNoInfo = new ArrayBuffer(0)
 

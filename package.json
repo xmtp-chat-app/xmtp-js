@@ -66,7 +66,8 @@
     "ethers": "^5.5.3",
     "long": "^5.2.0",
     "node-localstorage": "^2.2.1",
-    "patch-package": "^6.4.7"
+    "patch-package": "^6.4.7",
+    "web-streams-node": "^0.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",

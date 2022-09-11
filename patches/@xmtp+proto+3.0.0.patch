@@ -1,0 +1,16 @@
+diff --git a/node_modules/@xmtp/proto/ts/dist/cjs/fetch.pb.js b/node_modules/@xmtp/proto/ts/dist/cjs/fetch.pb.js
+index 27d28a6..30b289b 100644
+--- a/node_modules/@xmtp/proto/ts/dist/cjs/fetch.pb.js
++++ b/node_modules/@xmtp/proto/ts/dist/cjs/fetch.pb.js
+@@ -161,7 +161,10 @@ function fetchStreamingRequest(path, callback, init) {
+         if (!result.body) {
+             throw new Error("response doesnt have a body");
+         }
+-        yield result.body
++
++        const { toWebReadableStream } = require("web-streams-node");
++
++        yield toWebReadableStream(result.body)
+             .pipeThrough(new TextDecoderStream())
+             .pipeThrough(getNewLineDelimitedJSONDecodingStream())
+             .pipeTo(getNotifyEntityArrivalSink((e) => {

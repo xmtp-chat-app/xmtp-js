@@ -164,7 +164,9 @@ describe('Publish', () => {
     expect(publishMock).toHaveBeenCalledWith(expectedRequest, {
       pathPrefix: PATH_PREFIX,
       mode: 'cors',
-      headers: new Headers({ Authorization: `Bearer ${AUTH_TOKEN}` }),
+      headers: {
+        Authorization: `Bearer ${AUTH_TOKEN}`,
+      },
     })
   })
 
